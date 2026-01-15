@@ -6,57 +6,65 @@
 <style>
  body {
    margin: 0;
-   background: #0a0a0a;
-   font-family: Arial, sans-serif;
+   background: radial-gradient(circle at top, #2b0057, #050010 80%);
+   font-family: 'Poppins', sans-serif;
    color: white;
  }
  header {
-   background: linear-gradient(90deg, #ff0099, #ffae00);
+   background: rgba(255,255,255,0.05);
+   backdrop-filter: blur(12px);
    padding: 20px;
    text-align: center;
-   font-size: 28px;
-   font-weight: bold;
-   letter-spacing: 1px;
+   font-size: 32px;
+   font-weight: 700;
+   letter-spacing: 2px;
+   box-shadow: 0 0 40px rgba(255,0,200,0.4);
  }
  .hero {
    text-align: center;
-   padding: 60px 20px;
-   background: url('https://i.imgur.com/VKQ0T3N.jpeg') center/cover;
+   padding: 90px 20px;
+   background: linear-gradient(180deg, rgba(255,0,120,0.25), rgba(0,0,0,0));
    color: white;
  }
  .hero h1 {
-   font-size: 45px;
-   text-shadow: 0px 0px 20px black;
+   font-size: 60px;
+   font-weight: 800;
+   background: linear-gradient(90deg, #ff00f5, #00c8ff);
+   -webkit-background-clip: text;
+   color: transparent;
  }
  .btn {
-   background: #ff0099;
-   padding: 12px 35px;
-   border-radius: 30px;
-   display: inline-block;
-   margin-top: 20px;
-   font-size: 18px;
+   background: linear-gradient(90deg, #ff00f5, #ff8a00);
+   padding: 15px 45px;
+   border-radius: 50px;
+   font-size: 20px;
    text-decoration: none;
-   color: white;
+   color: black;
+   font-weight: 700;
+   box-shadow: 0 0 25px rgba(255,0,200,0.6);
  }
  .cards {
    display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-   gap: 20px;
-   padding: 40px;
+   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+   gap: 25px;
+   padding: 50px;
  }
  .card {
-   background: #1a1a1a;
-   padding: 20px;
-   border-radius: 15px;
+   background: rgba(255,255,255,0.07);
+   border: 1px solid rgba(255,255,255,0.1);
+   padding: 25px;
+   border-radius: 20px;
    text-align: center;
-   box-shadow: 0px 0px 10px rgba(255,255,255,0.1);
+   box-shadow: 0 0 25px rgba(0,255,255,0.1);
+   backdrop-filter: blur(10px);
  }
  footer {
    text-align: center;
-   padding: 20px;
-   background: #111;
-   margin-top: 40px;
+   padding: 25px;
+   background: rgba(255,255,255,0.05);
    color: #aaa;
+   margin-top: 40px;
+   font-size: 14px;
  }
 </style>
 </head>
@@ -88,9 +96,39 @@
 </div>
 <footer>
   © 2026 SingVerse | Built for Artists
-</footer>
+</footer><!-- Navigation Bar --><nav style="position:fixed;bottom:0;width:100%;background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);display:flex;justify-content:space-around;padding:15px 0;border-top:1px solid rgba(255,255,255,0.1);">
+  <a style="color:white;text-decoration:none;font-weight:600;">Home</a>
+  <a style="color:white;text-decoration:none;font-weight:600;">Explore</a>
+  <a style="color:white;text-decoration:none;font-weight:600;">Upload</a>
+  <a style="color:white;text-decoration:none;font-weight:600;">Sing</a>
+  <a style="color:white;text-decoration:none;font-weight:600;">Profile</a>
+</nav><!-- Profile Section --><section style="padding:60px 20px;text-align:center;">
+  <h2 style="font-size:40px;font-weight:700;">Your Profile</h2>
+  <div style="margin-top:20px;display:inline-block;background:rgba(255,255,255,0.1);padding:30px;border-radius:20px;backdrop-filter:blur(10px);">
+    <img src="profile.png" style="height:120px;border-radius:50%;">
+    <h3 style="margin-top:15px;font-size:24px;font-weight:700;">User Name</h3>
+    <p>Followers: 0 | Following: 0</p>
+    <p>Badges: None</p>
+  </div>
+</section><!-- Music Player --><section style="padding:40px 20px;text-align:center;">
+  <h2 style="font-size:35px;">Music Player</h2>
+  <div style="margin-top:20px;background:rgba(255,255,255,0.07);padding:25px;border-radius:20px;backdrop-filter:blur(10px);">
+    <p>Now Playing: Nothing</p>
+    <button style="padding:10px 25px;border-radius:30px;font-size:18px;font-weight:700;background:linear-gradient(90deg,#ff00f5,#ff8a00);border:none;">Play</button>
+  </div>
+</section><!-- Upload Section --><section style="padding:40px 20px;text-align:center;">
+  <h2 style="font-size:35px;">Upload Your Song</h2>
+  <input type="file" style="margin-top:20px;font-size:18px;">
+  <button style="margin-top:15px;padding:10px 25px;border-radius:30px;font-size:18px;font-weight:700;background:linear-gradient(90deg,#00c8ff,#ff00f5);border:none;">Upload</button>
+</section><!-- Explore Section --><section style="padding:40px 20px;text-align:center;">
+  <h2 style="font-size:35px;">Explore Songs</h2>
+  <p style="opacity:0.7;">Trending songs will appear here.</p>
+</section><!-- Sing Section --><section style="padding:40px 20px;text-align:center;">
+  <h2 style="font-size:35px;">Sing a Song</h2>
+  <button style="padding:12px 30px;border-radius:30px;font-size:20px;font-weight:700;background:linear-gradient(90deg,#ff0099,#00e1ff);border:none;">Start Singing</button>
+</section>
 <script>
 // Placeholder for Login System, Profiles, Uploads, etc.
 </script>
 </body>
-</html>
+ </html>
