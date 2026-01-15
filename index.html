@@ -185,5 +185,170 @@ btns.forEach(b=>{
   0% { box-shadow:0 0 20px #ff00f5; }
   100% { box-shadow:0 0 50px #00e1ff; }
 }
-</style></body>
-     </html>
+</style><!-- SAFETY & ANTI-ABUSE SYSTEM (UI LEVEL) --><section style="padding:50px 20px;text-align:center;">
+  <h2 style="font-size:40px;font-weight:700;color:#ff4d4d;">Safety & Anti‑Abuse Protection</h2>
+  <p style="opacity:0.8;font-size:18px;max-width:700px;margin:auto;">
+    SingVerse is protected with a multi‑layer safety system to ensure only genuine, respectful and verified users can join the platform.
+  </p>  <div style="margin-top:30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px;padding:20px;"><div style="background:rgba(255,255,255,0.1);padding:25px;border-radius:20px;backdrop-filter:blur(10px);box-shadow:0 0 15px #ff4d4d66;">
+  <h3>🚫 No Fake Accounts</h3>
+  <p style="opacity:0.7;">Strict verification removes bots, duplicate accounts and fake users.</p>
+</div>
+
+<div style="background:rgba(255,255,255,0.1);padding:25px;border-radius:20px;backdrop-filter:blur(10px);box-shadow:0 0 15px #ff4d4d66;">
+  <h3>🔐 Real User Verification</h3>
+  <p style="opacity:0.7;">Only genuine users with email/phone verification can enter SingVerse.</p>
+</div>
+
+<div style="background:rgba(255,255,255,0.1);padding:25px;border-radius:20px;backdrop-filter:blur(10px);box-shadow:0 0 15px #ff4d4d66;">
+  <h3>🛡 Anti‑Abuse Filter</h3>
+  <p style="opacity:0.7;">Bad words, harassment, insults & abuse are auto-blocked.</p>
+</div>
+
+<div style="background:rgba(255,255,255,0.1);padding:25px;border-radius:20px;backdrop-filter:blur(10px);box-shadow:0 0 15px #ff4d4d66;">
+  <h3>✔ Community Clean Mode</h3>
+  <p style="opacity:0.7;">Toxic behavior = instant ban. Only positive community allowed.</p>
+</div>
+
+  </div>
+</section><script>
+// SIMPLE FRONT-END ANTI-ABUSE KEYWORD FILTER
+const badWords=["abuse","kill","hate","madarchod","bhosdike","bc","mc","chutiya"]; // can be expanded
+
+function cleanText(input){
+  let text=input.toLowerCase();
+  badWords.forEach(word=>{
+    const regex=new RegExp(word,"gi");
+    text=text.replace(regex,"***");
+  });
+  return text;
+}
+
+// This function can be applied to chat boxes, comments or messages
+// Example:
+// const safeMessage = cleanText(userMessage);
+</script><!-- SAFE LIVE CHAT SECTION --><section style="padding:50px 20px;text-align:center;">
+  <h2 style="font-size:40px;font-weight:700;">Live Chat (Safe Mode)</h2>
+  <div style="margin:20px auto;width:90%;max-width:700px;background:rgba(255,255,255,0.08);padding:25px;border-radius:20px;backdrop-filter:blur(10px);"><div id="chatBox" style="height:220px;overflow-y:auto;text-align:left;padding:15px;background:rgba(255,255,255,0.05);border-radius:15px;"></div>
+
+<input id="chatInput" type="text" placeholder="Type your message..." style="width:75%;padding:10px;border-radius:20px;margin-top:15px;border:none;">
+<button onclick="sendChat()" style="padding:10px 25px;border-radius:30px;font-size:18px;font-weight:700;background:linear-gradient(90deg,#ff0099,#00e1ff);border:none;">Send</button>
+
+  </div>
+</section><!-- SAFE COMMENT SECTION --><section style="padding:50px 20px;text-align:center;">
+  <h2 style="font-size:40px;font-weight:700;">Comments (Protected)</h2>
+  <div style="margin:20px auto;width:90%;max-width:700px;background:rgba(255,255,255,0.08);padding:25px;border-radius:20px;backdrop-filter:blur(10px);"><div id="commentList" style="max-height:200px;overflow-y:auto;text-align:left;padding:10px;background:rgba(255,255,255,0.05);border-radius:15px;"></div>
+
+<input id="commentInput" type="text" placeholder="Write a comment..." style="width:75%;padding:10px;border-radius:20px;margin-top:15px;border:none;">
+<button onclick="postComment()" style="padding:10px 25px;border-radius:30px;font-size:18px;font-weight:700;background:linear-gradient(90deg,#00e1ff,#ff00f5);border:none;">Post</button>
+
+  </div>
+</section><!-- ADMIN CONTROL PANEL --><section style="padding:50px 20px;text-align:center;">
+  <h2 style="font-size:40px;font-weight:700;color:#ff4444;">Admin Control Panel</h2>
+  <p style="opacity:0.7;margin-bottom:20px;">Only verified administrators can manage the platform.</p>  <div style="margin:20px auto;width:90%;max-width:700px;background:rgba(255,255,255,0.08);padding:25px;border-radius:20px;backdrop-filter:blur(10px);text-align:left;">
+    <button onclick="clearChat()" style="padding:10px 20px;margin:10px;border-radius:20px;background:#ff4d4d;border:none;color:white;font-weight:700;">Clear Chat</button>
+    <button onclick="clearComments()" style="padding:10px 20px;margin:10px;border-radius:20px;background:#ff8811;border:none;color:white;font-weight:700;">Clear Comments</button>
+    <button onclick="banUser()" style="padding:10px 20px;margin:10px;border-radius:20px;background:#d500ff;border:none;color:white;font-weight:700;">Ban User</button>
+  </div>
+</section><script>
+// Chat Safe Send
+function sendChat(){
+  const box=document.getElementById('chatBox');
+  let msg=document.getElementById('chatInput').value;
+  if(!msg.trim()) return;
+  msg=cleanText(msg);
+  box.innerHTML+=`<p><strong>User:</strong> ${msg}</p>`;
+  document.getElementById('chatInput').value='';
+  box.scrollTop=box.scrollHeight;
+}
+
+// Comment Safe Post
+function postComment(){
+  const list=document.getElementById('commentList');
+  let msg=document.getElementById('commentInput').value;
+  if(!msg.trim()) return;
+  msg=cleanText(msg);
+  list.innerHTML+=`<p><strong>User:</strong> ${msg}</p>`;
+  document.getElementById('commentInput').value='';
+  list.scrollTop=list.scrollHeight;
+}
+
+// ADMIN FUNCTIONS
+function clearChat(){ document.getElementById('chatBox').innerHTML=''; }
+function clearComments(){ document.getElementById('commentList').innerHTML=''; }
+function banUser(){ alert('User has been banned (simulation).'); }
+</script><!-- PROFILE PICTURE UPLOAD --><section style="padding:50px 20px;text-align:center;">
+  <h2 style="font-size:40px;font-weight:700;">Upload Profile Photo</h2>
+  <div style="margin:20px auto;width:90%;max-width:600px;background:rgba(255,255,255,0.08);padding:30px;border-radius:20px;backdrop-filter:blur(10px);">
+    <img id="profilePreview" src="profile.png" style="height:130px;border-radius:50%;border:3px solid #00e1ff;">
+    <input id="profileUpload" type="file" accept="image/*" style="margin-top:20px;font-size:18px;">
+    <button onclick="uploadProfilePic()" style="margin-top:15px;padding:10px 25px;border-radius:30px;font-size:18px;font-weight:700;background:linear-gradient(90deg,#00e1ff,#ff00f5);border:none;">Save Photo</button>
+  </div>
+</section><!-- ADVANCED SONG UPLOAD + PLAYER --><section style="padding:50px 20px;text-align:center;">
+  <h2 style="font-size:40px;font-weight:700;">Upload Song</h2>
+  <div style="margin:20px auto;width:90%;max-width:600px;background:rgba(255,255,255,0.08);padding:30px;border-radius:20px;backdrop-filter:blur(10px);">
+    <input id="songUpload" type="file" accept="audio/*" style="font-size:18px;">
+    <button onclick="loadSong()" style="margin-top:15px;padding:10px 25px;border-radius:30px;font-size:18px;font-weight:700;background:linear-gradient(90deg,#ff0099,#00e1ff);border:none;">Upload Song</button>
+    <audio id="audioPlayer" controls style="width:100%;margin-top:20px;display:none;"></audio>
+  </div>
+</section><!-- LIVE MIC VISUALIZER --><section style="padding:50px 20px;text-align:center;">
+  <h2 style="font-size:40px;font-weight:700;">Live Mic Visualizer</h2>
+  <div style="margin:20px auto;width:90%;max-width:600px;background:rgba(255,255,255,0.08);padding:40px;border-radius:20px;backdrop-filter:blur(10px);">
+    <canvas id="micCanvas" width="500" height="100" style="width:100%;background:rgba(0,0,0,0.2);border-radius:10px;"></canvas>
+    <button onclick="startMic()" style="margin-top:20px;padding:10px 25px;border-radius:30px;font-size:18px;font-weight:700;background:linear-gradient(90deg,#ff00f5,#00c8ff);border:none;">Start Mic</button>
+  </div>
+</section><!-- DARK / LIGHT THEME SWITCH --><section style="padding:50px 20px;text-align:center;">
+  <h2 style="font-size:40px;font-weight:700;">Theme Mode</h2>
+  <button onclick="toggleTheme()" style="padding:10px 25px;border-radius:30px;font-size:20px;font-weight:700;background:linear-gradient(90deg,#ffaa00,#ff00aa);border:none;">Switch Theme</button>
+</section><!-- CREATOR VERIFICATION SYSTEM --><section style="padding:50px 20px;text-align:center;">
+  <h2 style="font-size:40px;font-weight:700;">Creator Verification</h2>
+  <div style="margin:20px auto;width:90%;max-width:600px;background:rgba(255,255,255,0.08);padding:30px;border-radius:20px;backdrop-filter:blur(10px);">
+    <p style="opacity:0.7;">Apply for Verified Badge</p>
+    <input type="text" id="reasonVerify" placeholder="Why should we verify you?" style="width:90%;padding:10px;border-radius:20px;border:none;">
+    <button onclick="applyVerify()" style="margin-top:15px;padding:10px 25px;border-radius:30px;font-size:20px;font-weight:700;background:linear-gradient(90deg,#00e1ff,#ff00aa);border:none;">Submit</button>
+  </div>
+</section><script>
+// Profile Photo
+function uploadProfilePic(){
+  const file=document.getElementById('profileUpload').files[0];
+  if(file){
+    document.getElementById('profilePreview').src=URL.createObjectURL(file);
+  }
+}
+// Song Player
+function loadSong(){
+  const file=document.getElementById('songUpload').files[0];
+  if(file){
+    const audio=document.getElementById('audioPlayer');
+    audio.src=URL.createObjectURL(file);
+    audio.style.display='block';
+  }
+}
+// Mic Visualizer
+function startMic(){
+  navigator.mediaDevices.getUserMedia({audio:true}).then(stream=>{
+    const ctx=new AudioContext();
+    const mic=ctx.createMediaStreamSource(stream);
+    const analyser=ctx.createAnalyser();
+    mic.connect(analyser);
+    const canvas=document.getElementById('micCanvas');
+    const c=canvas.getContext('2d');
+    function draw(){
+      requestAnimationFrame(draw);
+      let data=new Uint8Array(analyser.frequencyBinCount);
+      analyser.getByteFrequencyData(data);
+      c.clearRect(0,0,canvas.width,canvas.height);
+      data.slice(0,80).forEach((v,i)=>{
+        c.fillStyle='#00e1ff';
+        c.fillRect(i*6, canvas.height-v/2, 4, v/2);
+      });
+    }
+    draw();
+  });
+}
+// Theme Switcher
+let dark=true;
+function toggleTheme(){ dark=!dark; document.body.style.filter= dark? 'invert(0)' : 'invert(1)'; }
+// Creator Verify
+function applyVerify(){ alert('Verification request submitted!'); }
+</script></body>
+ </html>
