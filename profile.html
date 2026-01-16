@@ -1,1 +1,23 @@
-<html><body><h1>Profile Page (Filled)</h1></body></html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Profile – SingVerse</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="header">👤 My Profile</div>
+
+<img id="profilePhoto" src="logo.png" width="100"><br>
+<p id="profileEmail">Loading...</p>
+
+<input id="username" placeholder="Username">
+<textarea id="bio" placeholder="Your bio"></textarea>
+
+<button onclick="saveProfile()">Save Profile</button><br><br>
+<input type="file" onchange="uploadProfilePhoto(this.files[0])"><br><br>
+<button onclick="logoutUser()">Logout</button>
+
+<script type="module" src="profile-system.js"></script>
+</body>
+</html>
