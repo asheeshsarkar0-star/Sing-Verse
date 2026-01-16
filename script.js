@@ -1,1 +1,1 @@
-console.log('Ultra Final JS Loaded');
+console.log('UI Loaded');
