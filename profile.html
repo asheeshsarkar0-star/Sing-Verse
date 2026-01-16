@@ -6,16 +6,14 @@
 </head>
 <body>
 
-<div class="header">👤 My Profile</div>
+<div class="header">👤 Profile</div>
 
-<img id="profilePhoto" src="logo.png" width="100"><br>
-<p id="profileEmail">Loading...</p>
+<p id="profileEmail">Not logged in</p>
 
 <input id="username" placeholder="Username">
 <textarea id="bio" placeholder="Your bio"></textarea>
 
 <button onclick="saveProfile()">Save Profile</button><br><br>
-<input type="file" onchange="uploadProfilePhoto(this.files[0])"><br><br>
 <button onclick="logoutUser()">Logout</button>
 
 <script type="module" src="profile-system.js"></script>
