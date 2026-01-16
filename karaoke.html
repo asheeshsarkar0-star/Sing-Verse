@@ -9,8 +9,12 @@
 <div class="header">🎤 Sing Now</div>
 
 <section class="features">
-  <div class="card">🎧 Karaoke Track</div>
-  <button onclick="alert('Mic feature coming soon')">Start Singing</button>
+  <div class="card">
+    <p>🎧 Karaoke Track</p>
+    <canvas id="visualizer" width="280" height="80"
+      style="background:#000;border-radius:10px;"></canvas><br><br>
+    <button onclick="startMic()">Start Singing</button>
+  </div>
 </section>
 
 <nav class="bottom-nav">
@@ -20,5 +24,6 @@
   <a href="profile.html">Profile</a>
 </nav>
 
+<script src="karaoke.js"></script>
 </body>
 </html>
