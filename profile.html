@@ -4,9 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SingVerse - Profile</title>
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Firebase Config -->
+  <script type="module" src="firebase-config.js"></script>
+
+  <!-- Profile Backend -->
+  <script type="module" src="profile-system.js"></script>
 </head>
+
 <body>
+
+  <!-- HEADER -->
   <header>
     <h1>SingVerse</h1>
     <nav>
@@ -19,9 +30,77 @@
 
   <section class="hero">
     <h2>Your Profile</h2>
-    <p>Manage your account • Upload songs • View history</p>
+    <p>Manage your account • Update your details</p>
   </section>
 
-  <script src="script.js"></script>
+  <!-- PROFILE SECTION -->
+  <section style="padding:40px;text-align:center;">
+
+    <!-- PROFILE PHOTO -->
+    <img id="profilePhoto" 
+         src="assets/user.png" 
+         style="width:140px;height:140px;border-radius:50%;border:3px solid #ff00f5;">
+
+    <br><br>
+
+    <!-- EMAIL -->
+    <p style="font-size:18px;opacity:0.8;margin:5px 0;">
+      Logged in as: <span id="profileEmail"></span>
+    </p>
+
+    <!-- UPLOAD PHOTO -->
+    <input 
+      type="file" 
+      onchange="uploadProfilePhoto(this.files[0])"
+      style="margin:15px;padding:10px;border-radius:10px;background:rgba(255,255,255,0.15);border:none;color:white;">
+    
+    <br><br>
+
+    <!-- USERNAME -->
+    <input id="username" 
+           type="text" 
+           placeholder="Username"
+           style="width:80%;padding:12px;border-radius:10px;border:none;margin-bottom:15px;background:rgba(255,255,255,0.12);color:white;">
+
+    <br>
+
+    <!-- BIO -->
+    <textarea id="bio"
+              placeholder="Write your bio..."
+              style="width:80%;height:100px;padding:12px;border-radius:10px;border:none;background:rgba(255,255,255,0.12);color:white;"></textarea>
+
+    <br><br>
+
+    <!-- SAVE BUTTON -->
+    <button 
+      onclick="saveProfile()"
+      style="padding:12px 30px;border-radius:25px;font-size:18px;font-weight:700;background:linear-gradient(90deg,#ff00f5,#00e1ff);border:none;color:black;">
+      Save Profile
+    </button>
+
+    <br><br>
+
+    <!-- LOGOUT -->
+    <button 
+      onclick="logoutUser()"
+      style="padding:12px 28px;border-radius:25px;font-size:18px;font-weight:700;background:#ff3b3b;border:none;color:white;">
+      Logout
+    </button>
+
+  </section>
+
+  <!-- ADS SECTION (OPTIONAL) -->
+  <section style="padding:20px;text-align:center;">
+    <div style="background:rgba(255,255,255,0.05);padding:20px;border-radius:12px;">
+      <p style="opacity:0.7;">Advertisement</p>
+      <div style="height:80px;background:#111;border-radius:8px;"></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div style="padding:25px;text-align:center;color:#bbb;background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);">
+    © 2026 SingVerse • All Rights Reserved
+  </div>
+
 </body>
-</html>
+      </html>
